@@ -1,20 +1,19 @@
 import "./App.css";
-import SideFeed from "./components/SideFeed";
-import VideoPlayer from "./components/VideoPlayer";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import VideoPage from "./pages/VideoPage";
+import Feed from "./pages/Feed";
+import Upload from "./pages/Upload";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <div className="bg-red-400">nav</div>
-      <div className="grid grid-cols-12 h-screen">
-        <div className="bg-green-600 col-span-8">
-          <VideoPlayer />
-        </div>
-        <div className="bg-yellow-700 col-span-4">
-          <SideFeed />
-        </div>
-      </div>
-    </div>
+      <Routes>
+        <Route path="/feed" element={<Feed />} />
+        <Route path="/:id" element={<VideoPage />} />
+        <Route path="/upload" element={<Upload />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

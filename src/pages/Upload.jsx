@@ -1,8 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import VideoCard from "./VideoCard";
+import { useState } from "react";
 
-const SideFeed = () => {
+const Upload = () => {
   const [file, setFile] = useState();
 
   const handleFileChange = (e) => {
@@ -23,21 +22,17 @@ const SideFeed = () => {
       console.error("Error uploading file:", error);
     }
   };
-
   return (
-    <div>
-      <div className="bg-gray-400">
-        <div>Upload option for now!</div>
-        <div>
-          <input type="file" onChange={handleFileChange}></input>
-          <button className="bg-white " onClick={uploadFile}>
-            Upload
-          </button>
-        </div>
+    <div className="bg-gray-400">
+      <div>Upload option for now!</div>
+      <div>
+        <input type="file" onChange={handleFileChange}></input>
+        <button className="bg-white " onClick={uploadFile}>
+          Upload
+        </button>
       </div>
-      <VideoCard />
     </div>
   );
 };
 
-export default SideFeed;
+export default Upload;
